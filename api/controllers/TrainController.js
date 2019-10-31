@@ -8,34 +8,59 @@
 module.exports = {
 
   itin: function (req, res) {
-    Train.itin({
+    Train.create({
       origin: req.param('origin'),
       destination: req.param('destination'),
       depart: req.param('depart')
     }, function (err, user) {
       req.session.origin = req.param('origin');
-      console.log(req.session);
+      req.session.destination = req.param('destination');
+      req.session.depart = req.param('depart');
+
       if (!err) {
         return res.redirect('/train/acco');
 
-      } else {
-        res.send(req.session);
       }
-
     });
   },
 
 
+  acco: function (req, res) {
+    Train.create({
+        origin: req.session.origin,
+        destination: req.session.destination,
+        depart: req.session.depart,
+        trainName: req.param('customRadio')
+      },
+      function (err, user) {
+        console.log(req.session.origin)
+        req.session.trainName = req.param('trainName');
+
+        return res.redirect('/train/pass');
+
+      });
+  },
+
+
   pass: function (req, res) {
-    Train.pass({
-        book: req.param('book'),
-        age: req.param('age'),
-        gender: req.param('gender'),
-        contact: req.param('contact'),
-        address: req.param('address'),
+    Train.create({
+      origin: req.session.origin,
+      destination: req.session.destination,
+      depart: req.session.depart,
+      trainName: req.session.trainName,
+      book: req.param('book'),
+      age: req.param('age'),
+      gender: req.param('gender'),
+      contact: req.param('contact'),
+      address: req.param('address'),
 
     }, function (err, user) {
-      console.log(req.session);
+      req.session.book = req.param('book');
+      req.session.age = req.param('age');
+      req.session.gender = req.param('gender');
+      req.session.contact = req.param('contact');
+      req.session.address = req.param('address');
+
       if (!err) {
         return res.redirect('/train/payi');
 
@@ -46,10 +71,19 @@ module.exports = {
     });
   },
 
-  
+
   payi: function (req, res) {
-    Train.payi({
-       price: req.param('price'),
+    Train.create({
+      origin: req.session.origin,
+      destination: req.session.destination,
+      depart: req.session.depart,
+      trainName: req.session.trainName,
+      book: req.session.book,
+      age: req.session.age,
+      gender: req.session.gender,
+      contact: req.session.contact,
+      address: req.session.address,
+      price: req.param('price')
 
     }, function (err, user) {
       console.log(req.session);
@@ -61,18 +95,7 @@ module.exports = {
       }
 
     });
-  },
-
-
-  acco: function (req, res) {
-      var x = req.session.origin;
-      console.log(x);
-      Train.acco({origin: x, trainName: req.param('customRadio')},
-      function (err, user){
-      return res.redirect('/train/pass');
-
-      });
-      
   }
+
 
 };

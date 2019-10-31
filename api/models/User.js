@@ -25,6 +25,7 @@ module.exports = {
     User.create({
       fullName: inputs.fullName,
       emailAddress: inputs.emailAddress,
+      // TODO: But encrypt the password first
       password: inputs.password
     })
     .exec(cb);

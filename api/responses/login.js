@@ -1,13 +1,3 @@
-/**
- * res.login([inputs])
- *
- * @param {String} inputs.fullName
- * @param {String} inputs.password
- *
- * @description :: Log the requesting user in using a passport strategy
- * @help        :: See http://links.sailsjs.org/docs/responses
- */
-
 module.exports = function login(inputs) {
   inputs = inputs || {};
 

@@ -21,6 +21,7 @@ module.exports = {
   logout: function (req, res) {
 
     // "Forget" the user from the session.
+   
     // Subsequent requests from this user agent will NOT have `req.session.me`.
     req.session.me = null;
 

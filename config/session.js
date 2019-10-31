@@ -11,7 +11,13 @@
 
 module.exports.session = {
 
-  // adapter: 'connect-mongo',
+  adapter: 'connect-mongo',
+  host: 'localhost',
+  port: '27017',
+  collection: 'sessions',
+  ssl: false,
+  auto_reconnect: true,
+  url: 'mongodb://root@localhost:27017/ticket-reservation',
   // url: 'mongodb://user:pass@host:port/database',
   /***************************************************************************
   *                                                                          *
