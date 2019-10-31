@@ -32,17 +32,6 @@ module.exports = {
   },
 
 
-
-  /**
-   * Check validness of a login using the provided inputs.
-   * But encrypt the password first.
-   *
-   * @param  {Object}   inputs
-   *                     • emailAddress    {String}
-   *                     • password {String}
-   * @param  {Function} cb
-   */
-
   attemptLogin: function (inputs, cb) {
     // Create a user
     User.findOne({
