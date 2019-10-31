@@ -183,10 +183,10 @@ module.exports = {
     * > other compatible packages (like "connect-mongo") are available on NPM. *
     * > (For a full list, see https://sailsjs.com/plugins/sessions)            *
     *                                                                          *
-    ***************************************************************************/
-    // adapter: '@sailshq/connect-redis',
+    // ***************************************************************************/
+    // dapter: '@sailshq/connect-redis',
     // url: 'redis://user:password@localhost:6379/databasenumber',
-    //--------------------------------------------------------------------------
+    // //--------------------------------------------------------------------------
     // /\   OR, to avoid checking it in to version control, you might opt to
     // ||   set sensitive credentials like this using an environment variable.
     //

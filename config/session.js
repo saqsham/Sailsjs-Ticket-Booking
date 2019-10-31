@@ -11,6 +11,8 @@
 
 module.exports.session = {
 
+  // adapter: 'connect-mongo',
+  // url: 'mongodb://user:pass@host:port/database',
   /***************************************************************************
   *                                                                          *
   * Session secret is automatically generated when your new app is created   *
